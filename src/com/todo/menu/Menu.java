@@ -13,7 +13,12 @@ public class Menu {
         System.out.println("ls_name_desc - 제목역순 정렬");
         System.out.println("ls_date - 날짜순 정렬");
         System.out.println("exit - 종료");
-        System.out.println();
-        System.out.println("Command >");
+        
+       
     }
+
+	public static void prompt() {
+		 System.out.print("Command > ");
+		
+	}
 }

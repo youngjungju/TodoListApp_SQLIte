@@ -108,15 +108,12 @@ public class TodoUtil {
 				l.addItem(new TodoItem(title, desc, date));
 			}
 			br.close();
-			//if(count == 0) System.out.println(filename + "파일이 없습니다.");
 			if(count != 0) System.out.println(count+"개의 항목을 읽었습니다.");
 			
 		
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			System.out.println(filename + "파일이 없습니다.");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
