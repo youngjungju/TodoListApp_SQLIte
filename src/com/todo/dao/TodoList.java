@@ -60,4 +60,61 @@ public class TodoList {
 		}
 		return false;
 	}
+	
+	public void find(String[] schoice) {
+		String t = "";
+		int a = 1;
+		int count = 0;
+
+		for(int i = 1;i<schoice.length;i++) {
+			if(i==schoice.length-1) t += schoice[i];
+			else t += schoice[i] + " ";
+			
+		}
+		for(TodoItem item : list) {
+			if(item.getTitle().contains(t)||item.getDesc().contains(t))
+				System.out.println(a+". "+item.toString());
+			a++;
+			
+		}
+		for(TodoItem item : list) {
+			if(item.getTitle().contains(t)||item.getDesc().contains(t))
+				count++;
+		}
+		System.out.println("총" + count +"개의 항목을 찾았습니다.");
+	}
+	
+	public void find_cate(String[] schoice) {
+		String t = "";
+		int a = 1;
+		for(int i = 1;i<schoice.length;i++) {
+			if(i==schoice.length-1) t += schoice[i];
+			else t += schoice[i] + " ";
+		}
+		for(TodoItem item : list) {
+			if(item.getCategory().contains(t))
+				System.out.println(a+". "+item.toString());
+			a++;
+		}
+	}
+	
+	public void ls_cate() {
+		HashSet<String> set = new HashSet<String>();
+		for(TodoItem item : list) set.add(item.getCategory());
+		int size = set.size();
+		int a = 1;
+		Iterator<String> iter = set.iterator();
+		while(iter.hasNext()) {
+			if(a<size) System.out.print(iter.next()+" / ");
+			else System.out.print(iter.next());
+			a++;
+		}
+		System.out.println();
+		System.out.println("총 "+size+"개의 카테고리가 등록되어 있습니다.");
+	}
+	
+	public int getlsize() {
+		return this.list.size();
+	}
+	
 }

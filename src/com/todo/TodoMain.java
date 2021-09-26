@@ -20,8 +20,9 @@ public class TodoMain {
 		do {
 			Menu.prompt();
 			isList = false;
-			String choice = sc.next();
-			switch (choice) {
+			String choice = sc.nextLine();
+			String[] schoice = choice.split(" ");
+			switch (schoice[0]) {
 
 			case "add":
 				TodoUtil.createItem(l);
@@ -60,6 +61,25 @@ public class TodoMain {
 			
 			case "help":
 				Menu.displaymenu();
+				break;
+				
+			case "find":
+				l.find(schoice);
+				break;
+			
+			case "find_cate":
+				l.find_cate(schoice);
+				break;
+			
+			case "ls_cate":
+				l.ls_cate();
+				break;
+				
+			case "ls_date_desc":
+				l.sortByDate();
+				l.reverseList();
+				System.out.println("날짜 역순 정렬 되었습니다.");
+				isList = true;
 				break;
 
 			case "exit":
