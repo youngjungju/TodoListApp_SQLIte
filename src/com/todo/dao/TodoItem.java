@@ -9,6 +9,7 @@ public class TodoItem {
     private String current_date;
     private String category; //카테고리 필드 추가
     private String due_date; //마감일자 필드 추가
+    private int id;
 
 
     public TodoItem(String category, String title ,String desc, String due_date){
@@ -70,9 +71,19 @@ public class TodoItem {
     
     @Override
     public String toString() {
-    	return "[" +  category + "] " + title  + " - " + desc + " - " + due_date + " - " + current_date;
+    	return  id + ". "+ "[" +  category + "] " + title  + " - " + desc + " - " + due_date + " - " + current_date;
     }
-    public String toSaveString() {
-    	return category + "##" + title + "##" + desc + "##" + due_date + "##" + current_date + "\n";
-    }
+//    public String toSaveString() {
+//    	return category + "##" + title + "##" + desc + "##" + due_date + "##" + current_date + "\n";
+//    }
+  
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getId() {
+			return id;
+	}
+
+    
 }
